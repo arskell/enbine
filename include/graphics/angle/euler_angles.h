@@ -9,4 +9,6 @@ struct EulerAngles{
     AngleType gamma;
 };
 
+EulerAngles operator+(const EulerAngles& lhs, const EulerAngles& rhs);
+
 #endif
