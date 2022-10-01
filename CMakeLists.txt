@@ -13,12 +13,16 @@ set(SRC
 
 #Testing library
 add_subdirectory(Catch2)
-include_directories(Catch2/src)
+include_directories(Catch2/single_include)
+
 add_executable(enbine_test ${SRC} test/main_test.cpp)
+
+#Link testing library
+target_link_libraries(enbine_test Catch2)
+
 
 #The library itself
 add_library(enbine STATIC ${SRC})
 
-#Link testing library
-target_link_libraries(enbine_test Catch2WithMain)
+
 
