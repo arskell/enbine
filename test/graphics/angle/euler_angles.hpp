@@ -1,5 +1,5 @@
 #include <catch2/catch.hpp>
-#include <graphics/angle/euler_angles.h>
+#include <enbine/graphics/angle/euler_angles.h>
 
 
 TEST_CASE("Euler angles operations", "EulerOps"){
