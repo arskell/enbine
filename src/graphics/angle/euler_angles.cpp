@@ -1,6 +1,7 @@
 #include "enbine/graphics/angle/euler_angles.h"
 
 
+
 EulerAngles operator+(const EulerAngles& lhs, const EulerAngles& rhs){
     EulerAngles result;
 
