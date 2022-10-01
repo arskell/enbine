@@ -1,4 +1,4 @@
-#include <catch2/catch_all.hpp>
+#include <catch2/catch.hpp>
 #include <graphics/angle/euler_angles.h>
 
 
@@ -12,9 +12,9 @@ TEST_CASE("Euler angles operations", "EulerOps"){
 
         auto res = el1 + EulerAngles{1.1, 0.2, 0.3};
 
-        REQUIRE(res.alpha == Catch::Approx(2.1));
-        REQUIRE(res.beta == Catch::Approx(0.7));
-        REQUIRE(res.gamma == Catch::Approx(0.4));
+        REQUIRE(res.alpha == Approx(2.1));
+        REQUIRE(res.beta ==  Approx(0.7));
+        REQUIRE(res.gamma == Approx(0.4));
 
     }
 }
