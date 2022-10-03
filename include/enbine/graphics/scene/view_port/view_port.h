@@ -2,7 +2,7 @@
 #define VIEW_PORT_H
 
 #include "../../angle/simple_angle.h"
-#include "primitives/primitive_object.h"
+#include "../primitives/primitive_object.h"
 
 typedef unsigned int ScreenDimensionsT;
 

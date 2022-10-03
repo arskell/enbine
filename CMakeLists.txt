@@ -8,7 +8,7 @@ include_directories(include/)
 set(SRC 
 
     src/graphics/angle/euler_angles.cpp
-
+    src/graphics/math_unit/vec3.cpp
     )
 
 #Testing library
