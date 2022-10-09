@@ -21,13 +21,8 @@ Vec3 operator-(const Vec3& v, const ComponentT& a);
 /// @param v1 
 /// @param v2 
 /// @return 
-Vec3 operator*(const Vec3& v1, const Vec3& v2);
+ComponentT operator*(const Vec3& v1, const Vec3& v2);
 
-/// @brief Dot 
-/// @param v1 
-/// @param v2 
-/// @return 
-Vec3 operator/(const Vec3& v1, const Vec3& v2);
 Vec3 operator+(const Vec3& v1, const Vec3& v2);
 Vec3 operator-(const Vec3& v1, const Vec3& v2);
 

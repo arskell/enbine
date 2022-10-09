@@ -9,6 +9,7 @@ set(SRC
 
     src/graphics/angle/euler_angles.cpp
     src/graphics/math_unit/vec3.cpp
+    src/graphics/math_unit/plane.cpp
     )
 
 #Testing library

@@ -35,23 +35,13 @@ Vec3 operator-(const Vec3& v, const ComponentT& a){
     return ret;
 }
 
-Vec3 operator*(const Vec3& v1, const Vec3& v2){
-    Vec3 ret;
-    ret.x1 = v1.x1 * v2.x1;
-    ret.x2 = v1.x2 * v2.x2;
-    ret.x3 = v1.x3 * v2.x3;
+ComponentT operator*(const Vec3& v1, const Vec3& v2){
+    ComponentT ret;
+    ret = v1.x1 * v2.x1 + v1.x2 * v2.x2 + v1.x3 * v2.x3;
     return ret;
 }
 
 
-
-Vec3 operator/(const Vec3& v1, const Vec3& v2){
-    Vec3 ret;
-    ret.x1 = v1.x1 / v2.x1;
-    ret.x2 = v1.x2 / v2.x2;
-    ret.x3 = v1.x3 / v2.x3;
-    return ret;
-}
 
 
 Vec3 operator+(const Vec3& v1, const Vec3& v2){
