@@ -71,3 +71,7 @@ Vec3 normalize(const Vec3& v){
     auto len = length(v);
     return v/len;
 }
+
+Vec3 avg(const Vec3 v1, const Vec3 v2){
+    return (v1 + v2)/2;
+}
