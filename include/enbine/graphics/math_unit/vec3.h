@@ -26,5 +26,7 @@ ComponentT operator*(const Vec3& v1, const Vec3& v2);
 Vec3 operator+(const Vec3& v1, const Vec3& v2);
 Vec3 operator-(const Vec3& v1, const Vec3& v2);
 
+ComponentT length(const Vec3& v);
+Vec3 normalize(const Vec3& v);
 
 #endif

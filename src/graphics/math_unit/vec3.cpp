@@ -1,5 +1,5 @@
 #include "enbine/graphics/math_unit/vec3.h"
-
+#include "math.h"
 
 
 Vec3 operator*(const Vec3& v, const ComponentT& a){
@@ -59,4 +59,15 @@ Vec3 operator-(const Vec3& v1, const Vec3& v2){
     ret.x2 = v1.x2 - v2.x2;
     ret.x3 = v1.x3 - v2.x3;
     return ret;
+}
+
+
+ComponentT length(const Vec3& v){
+    return sqrt(v.x1*v.x1 + v.x2*v.x2 + v.x3*v.x3);
+}
+
+
+Vec3 normalize(const Vec3& v){
+    auto len = length(v);
+    return v/len;
 }
