@@ -11,4 +11,6 @@ struct Ray {
     ComponentT t;
 };
 
+Vec3 to_vec3(const Ray& ray);
+
 #endif
