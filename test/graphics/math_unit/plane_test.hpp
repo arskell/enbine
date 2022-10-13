@@ -3,6 +3,8 @@
 
 #include "enbine/graphics/math_unit/plane.h"
 #include "enbine/graphics/ray/ray.h"
+#include <catch2/catch.hpp>
+
 
 TEST_CASE("Plane operations", "Plane"){
     
