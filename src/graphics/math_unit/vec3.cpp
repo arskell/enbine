@@ -75,3 +75,11 @@ Vec3 normalize(const Vec3& v){
 Vec3 avg(const Vec3 v1, const Vec3 v2){
     return (v1 + v2)/2;
 }
+
+Vec3 cross(const Vec3& v1, const Vec3& v2){
+    return {
+        v1.x2*v2.x3 -  v1.x3*v2.x2,
+        -(v1.x1*v2.x3 -  v1.x3*v2.x1),
+        v1.x1*v2.x2 -  v1.x2*v2.x1
+        };
+}

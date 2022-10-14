@@ -31,4 +31,10 @@ Vec3 normalize(const Vec3& v);
 
 Vec3 avg(const Vec3 v1, const Vec3 v2);
 
+/// @brief cross product
+/// @param v1 
+/// @param v2 
+/// @return 
+Vec3 cross(const Vec3& v1, const Vec3& v2);
+
 #endif
