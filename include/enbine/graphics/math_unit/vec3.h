@@ -37,4 +37,6 @@ Vec3 avg(const Vec3 v1, const Vec3 v2);
 /// @return 
 Vec3 cross(const Vec3& v1, const Vec3& v2);
 
+ComponentT area(const Vec3& a, const Vec3& b, const Vec3& c);
+
 #endif

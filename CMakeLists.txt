@@ -9,7 +9,9 @@ set(SRC
 
     src/graphics/angle/euler_angles.cpp
     src/graphics/math_unit/vec3.cpp
+    src/graphics/math_unit/component.cpp
     src/graphics/math_unit/plane.cpp
+    src/graphics/scene/primitives/triangle.cpp
     src/graphics/ray/ray.cpp
     )
 

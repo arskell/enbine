@@ -4,12 +4,15 @@
 #include "../../math_unit/plane.h"
 #include "../../math_unit/vec3.h"
 #include "../../ray/ray.h"
+#include "../../ray/intersection_info.h"
 
 class Triangle{
 private:
     Vec3 _a;
     Vec3 _b;
     Plane _plane;
+    ComponentT _area;
+
 public:
     Triangle(){
         set({}, {}, {});
@@ -27,11 +30,13 @@ public:
         auto ab = b - a;
         auto ac = c - a;
 
-        _plane.n = cross(ab, ac);
+        auto crs = cross(ab, ac);
+
+        _area = 0.5 * length(crs);
+        _plane.n = normalize(crs);
     }
 
-    friend bool is_intersecting(const Ray& ray);
-
+    friend IntersectionInfo calc_intersection(const Triangle& triange, const Ray& ray);
 };
 
 

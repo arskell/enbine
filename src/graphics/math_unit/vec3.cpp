@@ -83,3 +83,12 @@ Vec3 cross(const Vec3& v1, const Vec3& v2){
         v1.x1*v2.x2 -  v1.x2*v2.x1
         };
 }
+
+
+ComponentT area(const Vec3& a, const Vec3& b, const Vec3& c){
+    auto ab = b - a;
+    auto ac = c - a;
+    auto tmp = cross(ab, ac);
+    
+    return 0.5f * length(tmp);
+}
