@@ -59,7 +59,6 @@ class ViewPort{
         Ray ray;
         ray.p = _p;
         ray.d = direction;
-        ray.t = 0;
 
         return ray;
     }

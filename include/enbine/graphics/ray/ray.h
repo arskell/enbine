@@ -8,9 +8,9 @@ struct Ray {
     Vec3 p;
     Vec3 d;
     
-    ComponentT t;
+   // ComponentT t;
 };
 
-Vec3 to_vec3(const Ray& ray);
+Vec3 to_vec3(const Ray& ray, ComponentT t);
 
 #endif

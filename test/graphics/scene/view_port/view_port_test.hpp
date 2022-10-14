@@ -12,19 +12,15 @@ TEST_CASE("View_port ops", "ViewPort"){
     SECTION("Diagonal sizes"){
 
         auto r1 = view_port.get_ray(0,0);
-        r1.t = 100;
 
         auto r2 = view_port.get_ray(view_port.get_view_port_width(), view_port.get_view_port_height());
-        r2.t = 100;
 
-        auto r3 = view_port.get_ray(view_port.get_view_port_width(),0);
-        r3.t = 100;
+        auto r3 = view_port.get_ray(view_port.get_view_port_width(),0);;
 
         auto r4 = view_port.get_ray(0, view_port.get_view_port_height());
-        r4.t = 100;
 
-        auto r12 = to_vec3(r2) - to_vec3(r1);
-        auto r34 = to_vec3(r4) - to_vec3(r3);
+        auto r12 = to_vec3(r2, 100) - to_vec3(r1, 100);
+        auto r34 = to_vec3(r4, 100) - to_vec3(r3, 100);
 
         REQUIRE(length(r12) == Approx(length(r34)));
     }
@@ -32,26 +28,21 @@ TEST_CASE("View_port ops", "ViewPort"){
     SECTION("Corner to observer distance"){
 
         auto r1 = view_port.get_ray(0,0);
-        r1.t = 100;
 
         auto r2 = view_port.get_ray(view_port.get_view_port_width(), view_port.get_view_port_height());
-        r2.t = 100;
 
         auto r3 = view_port.get_ray(view_port.get_view_port_width(),0);
-        r3.t = 100;
 
         auto r4 = view_port.get_ray(0, view_port.get_view_port_height());
-        r4.t = 100;
 
         auto r_cent = view_port.get_ray(view_port.get_view_port_width()/2, view_port.get_view_port_height()/2);
-        r_cent.t = 100;
 
-        auto v1 = to_vec3(r1);
-        auto v2 = to_vec3(r2);
-        auto v3 = to_vec3(r3);
-        auto v4 = to_vec3(r4);
+        auto v1 = to_vec3(r1, 100);
+        auto v2 = to_vec3(r2, 100);
+        auto v3 = to_vec3(r3, 100);
+        auto v4 = to_vec3(r4, 100);
         
-        auto v_cent = to_vec3(r_cent);
+        auto v_cent = to_vec3(r_cent, 100);
 
         auto v13 = avg(v1, v3);
         auto v24 = avg(v2, v4);

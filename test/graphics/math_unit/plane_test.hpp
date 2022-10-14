@@ -16,9 +16,9 @@ TEST_CASE("Plane operations", "Plane"){
     ray.d = {1, 0, 0};
     ray.p = {0.1f, 0.1f, 0.1f};
 
-    ray.t = get_intersection(plane, ray.p, ray.d);
+    auto t = get_intersection(plane, ray.p, ray.d);
 
-    REQUIRE( abs((ray.p + ray.d * ray.t - plane.q)*plane.n) == Approx(0.0f) );
+    REQUIRE( abs((ray.p + ray.d * t - plane.q)*plane.n) == Approx(0.0f) );
 
 }
 
