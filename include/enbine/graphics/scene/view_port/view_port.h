@@ -6,8 +6,9 @@
 #include "../../math_unit/vec3.h"
 #include "../../ray/ray.h"
 #include "../../math_unit/plane.h"
+#include "view_port_screen.h"
+#include "vew_port_info.h"
 
-typedef unsigned int ScreenDimensionsT;
 
 class ViewPort{
     
