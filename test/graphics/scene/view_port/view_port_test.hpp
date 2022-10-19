@@ -6,8 +6,13 @@
 
 
 TEST_CASE("View_port ops", "ViewPort"){
-
-    ViewPort view_port;
+    
+    ViewPortInfo info{};
+    
+    info.screen_horizontal_size = info.screen_vertical_size = 600;
+    info.horizontal_fow = info.vertical_fow = M_PI_2;
+    
+    ViewPort view_port(info);
 
     SECTION("Diagonal sizes"){
 

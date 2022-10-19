@@ -7,8 +7,11 @@
 
 struct ViewPortInfo{
     Vec3 pos;
-    EulerAngles rotation_pos;
     
+    AngleType alpha;
+    AngleType beta;
+    AngleType rotate;
+
     AngleType horizontal_fow;
     AngleType vertical_fow;
     ScreenDimensionsT screen_horizontal_size;
