@@ -28,11 +28,15 @@ class ViewPort{
     ScreenDimensionsT _x_size;
     ScreenDimensionsT _y_size;    
     
+    ViewPortInfo _info;
+
     public:
-    
 
+    ViewPortInfo get_info() const{return _info;}
 
-    ViewPort(ViewPortInfo info = {}){
+    void set(ViewPortInfo info){
+        
+        _info = info;
 
         _p = info.pos;
 
@@ -71,6 +75,13 @@ class ViewPort{
         _s_y = _s_y * y_ratio;
 
         _s = _p +  _look_at * screen_range - (_s_y * _y_size / 2) - (_s_x * _x_size / 2);
+    }
+
+    Vec3 get_look_at() const {return _look_at;}
+
+    ViewPort(ViewPortInfo info = {}){
+
+      set(info);
 
     }
 
