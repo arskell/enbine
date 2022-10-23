@@ -2,6 +2,7 @@
 #define VEC3_H
 
 #include "component.h"
+#include "../angle/simple_angle.h"
 
 struct Vec3
 {
@@ -38,5 +39,13 @@ Vec3 avg(const Vec3 v1, const Vec3 v2);
 Vec3 cross(const Vec3& v1, const Vec3& v2);
 
 ComponentT area(const Vec3& a, const Vec3& b, const Vec3& c);
+
+
+/// @brief Apply euler rotation 
+/// @param vec 
+/// @param alpha 
+/// @param beta 
+/// @return 
+Vec3 euler_rotate(const Vec3& vec, AngleType alpha, AngleType beta, AngleType gamma);
 
 #endif

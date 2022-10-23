@@ -40,6 +40,7 @@ class ViewPort{
 
         _p = info.pos;
 
+
         _look_at = {cos(info.beta) * sin(info.alpha),
                     cos(info.beta) * cos(info.alpha),
                     sin(info.beta)};
@@ -48,11 +49,12 @@ class ViewPort{
         _s_y = {cos(info.beta - static_cast<AngleType>(M_PI_2)) * sin(info.alpha),
                 cos(info.beta - static_cast<AngleType>(M_PI_2)) * cos(info.alpha),
                 sin(info.beta - static_cast<AngleType>(M_PI_2))};
-        
+
+        _s_x = cross(_s_y, _look_at);
+
         //!!
         //_s_y = normalize({0,1,0});
         //_s_x = normalize({1,0,0});
-        _s_x = cross(_s_y, _look_at);
 
         const auto screen_range = 10.0f;
 

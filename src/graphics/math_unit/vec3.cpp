@@ -92,3 +92,12 @@ ComponentT area(const Vec3& a, const Vec3& b, const Vec3& c){
     
     return 0.5f * length(tmp);
 }
+
+
+Vec3 euler_rotate(const Vec3& vec, AngleType alpha, AngleType beta, AngleType gamma){
+    return {
+        vec.x1 * (cos(alpha)* cos(gamma) - cos(beta) * sin(alpha) * sin(gamma)) + vec.x2 * ( -cos(gamma) * sin(alpha) - cos(alpha) * cos(beta) * sin(gamma))  + vec.x3 * sin(beta) * sin(gamma),
+        vec.x1 * (cos(beta) * cos(gamma) * sin(alpha) + cos(alpha) * sin(gamma)) + vec.x2 * (cos(alpha) * cos(beta) * cos(gamma) - sin(alpha) * sin(gamma)) - vec.x3 * cos(gamma) * sin(beta),
+        vec.x1 * sin(alpha) * sin(beta) + vec.x2 * cos(alpha) * sin(beta) + vec.x3 * cos(beta)
+    };
+}
