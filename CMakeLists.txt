@@ -13,6 +13,7 @@ set(SRC
     src/graphics/math_unit/plane.cpp
     src/graphics/scene/primitives/triangle.cpp
     src/graphics/ray/ray.cpp
+    src/graphics/scene/view_port/view_port.cpp
     )
 
 #Testing library
