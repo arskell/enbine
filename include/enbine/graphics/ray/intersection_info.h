@@ -7,7 +7,9 @@ struct IntersectionInfo{
     bool is_intersected;
     //distance
     ComponentT t;
-    //todo reflect rays
+    
+    Vec3 direct_reflect;
+    Vec3 n;
 };
 
 
