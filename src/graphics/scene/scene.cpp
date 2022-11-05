@@ -2,7 +2,7 @@
 #include <vector>
 
 LightComponentT Scene::get_light(const Ray& ray){
-    const Vec3 background = {100,100,100};
+    const LightComponentT background = {30,30,30};
 
     if(_objects.empty()){return background;}
     IntersectionInfo shortest = _objects.begin()->second->get_intersection(ray);
@@ -17,7 +17,15 @@ LightComponentT Scene::get_light(const Ray& ray){
         }
     }
 
-    //todo calc actual light
+    if(!shortest.is_intersected){
+        return background;
+    }
 
-    return (shortest.is_intersected == true)?Vec3{0,0,0}:background;
+    LightComponentT e{};
+
+    for(const auto& l: _light){
+        e = e + l.second->get_illumination(shortest.n, to_vec3(ray, shortest.t));
+    }
+
+    return e;
 }
