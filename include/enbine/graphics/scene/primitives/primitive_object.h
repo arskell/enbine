@@ -14,7 +14,7 @@ class PrimitiveObject{
     virtual void move_position(Vec3 delta_position) {_position = _position + delta_position;}
     virtual Vec3 get_position() const{return _position;}
 
-    virtual void set_n(Vec3 n){_n = n;}
+    virtual void set_n(Vec3 n){_n = normalize(n);}
     virtual Vec3 get_n() const{return _n;}
 };
 
