@@ -5,8 +5,9 @@
 #include "../../math_unit/vec3.h"
 #include "../../ray/ray.h"
 #include "../../ray/intersection_info.h"
+#include "primitive_object.h"
 
-class Triangle{
+class Triangle: public PrimitiveObject{
 private:
     Vec3 _a;
     Vec3 _b;
@@ -22,19 +23,12 @@ public:
         set(a, b, c);
     }
 
-    void set(const Vec3& a, const Vec3& b, const Vec3& c){
-        _a = a;
-        _b = b;
-        _plane.q = c;
-
-        auto ab = b - a;
-        auto ac = c - a;
-
-        auto crs = cross(ab, ac);
-
-        _area = 0.5 * length(crs);
-        _plane.n = normalize(crs);
-    }
+    void set(const Vec3& a, const Vec3& b, const Vec3& c);
+    void set_position(Vec3 position) override;
+    void move_position(Vec3 delta_position) override;
+    Vec3 get_position() const override;
+    void set_n(Vec3 n) override;
+    Vec3 get_n() const override{return _plane.n;}
 
     friend IntersectionInfo calc_intersection(const Triangle& triange, const Ray& ray);
 };

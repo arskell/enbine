@@ -1,21 +1,21 @@
 #ifndef PRIMITIVE_OBJECT_H
 #define PRIMITIVE_OBJECT_H
-#include "../../angle/euler_angles.h"
-#include "../../position/position.h"
+#include "../../math_unit/vec3.h"
 
 /*
     Object that has only position and orientation
 */
 class PrimitiveObject{
     protected:
-    Position3D _position;
-    EulerAngles _orientation;
+    Vec3 _position;
+    Vec3 _n;
     public:
-    void set_position(Position3D position);
-    void move_position(Position3D delta_position);
+    virtual void set_position(Vec3 position){_position = position;}
+    virtual void move_position(Vec3 delta_position) {_position = _position + delta_position;}
+    virtual Vec3 get_position() const{return _position;}
 
-    void set_orientation(EulerAngles orientation);
-    void move_orientation(EulerAngles delta_orientation);
+    virtual void set_n(Vec3 n){_n = n;}
+    virtual Vec3 get_n() const{return _n;}
 };
 
 

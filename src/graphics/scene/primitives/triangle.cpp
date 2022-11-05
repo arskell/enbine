@@ -20,3 +20,37 @@ IntersectionInfo calc_intersection(const Triangle& triange, const Ray& ray){
     }
     return result;
 }
+
+
+void Triangle::set(const Vec3& a, const Vec3& b, const Vec3& c){
+    _a = a;
+    _b = b;
+    _plane.q = c;
+
+    auto ab = b - a;
+    auto ac = c - a;
+
+    auto crs = cross(ab, ac);
+
+    _area = 0.5 * length(crs);
+    _plane.n = normalize(crs);
+}
+void Triangle::set_position(Vec3 position) {
+    auto pos = get_position();
+    auto delta_pos = position - pos;
+    move_position(delta_pos);
+}
+
+void Triangle::move_position(Vec3 delta_position){
+    _a = _a + delta_position;
+    _b = _b + delta_position;
+    _plane.q = _plane.q + delta_position;
+}
+
+Vec3 Triangle::get_position() const{
+    return (_a + _b + _plane.q)/3;
+}
+
+void Triangle::set_n(Vec3 n){
+    _plane.n = n;
+}
