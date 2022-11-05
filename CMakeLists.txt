@@ -14,6 +14,7 @@ set(SRC
     src/graphics/scene/primitives/triangle.cpp
     src/graphics/ray/ray.cpp
     src/graphics/scene/view_port/view_port.cpp
+    src/graphics/scene/scene.cpp
     )
 
 #Testing library
