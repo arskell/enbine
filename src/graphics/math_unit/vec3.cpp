@@ -66,6 +66,13 @@ ComponentT length(const Vec3& v){
     return sqrt(v.x1*v.x1 + v.x2*v.x2 + v.x3*v.x3);
 }
 
+ComponentT distance2(const Vec3& v1, const Vec3& v2){
+    return pow(v2.x1 - v1.x1, 2) + pow(v2.x2 - v1.x2, 2) + pow(v2.x3 - v1.x3, 2);
+}
+
+ComponentT distance(const Vec3& v1,const Vec3& v2){
+    return sqrt(distance2(v1, v2));
+}
 
 Vec3 normalize(const Vec3& v){
     auto len = length(v);
