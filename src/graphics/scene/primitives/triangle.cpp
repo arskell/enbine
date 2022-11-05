@@ -8,7 +8,9 @@ IntersectionInfo calc_intersection(const Triangle& triange, const Ray& ray){
     result.is_intersected = false;
 
     result.t = get_intersection(triange._plane, ray.p, ray.d);
-    
+    result.n = {};
+    result.direct_reflect = {};
+
     if(result.t > 0){
         auto inters = to_vec3(ray, result.t);
 
@@ -17,6 +19,8 @@ IntersectionInfo calc_intersection(const Triangle& triange, const Ray& ray){
                         area(triange._b, triange._plane.q, inters);
 
         result.is_intersected = equal(triange._area, sum_area, 1e-2);
+
+        result.n = triange._plane.n;
     }
     return result;
 }
