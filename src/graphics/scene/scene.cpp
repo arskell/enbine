@@ -2,7 +2,7 @@
 #include <vector>
 
 LightComponentT Scene::get_light(const Ray& ray){
-    const LightComponentT background = {30,30,30};
+    const LightComponentT background = {0, 0, 0};
 
     if(_objects.empty()){return background;}
     IntersectionInfo shortest = _objects.begin()->second->get_intersection(ray);
