@@ -7,6 +7,7 @@ struct IntersectionInfo{
     bool is_intersected;
     //distance
     ComponentT t;
+    //todo reflect rays
 };
 
 
