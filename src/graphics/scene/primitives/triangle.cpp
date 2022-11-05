@@ -17,8 +17,9 @@ IntersectionInfo calc_intersection(const Triangle& triange, const Ray& ray){
         auto sum_area = area(triange._a, triange._b, inters) + 
                         area(triange._a, triange._plane.q, inters) + 
                         area(triange._b, triange._plane.q, inters);
+        auto ratio = sum_area / triange._area;
 
-        result.is_intersected = equal(triange._area, sum_area, 1e-2);
+        result.is_intersected = equal(ratio, 1, 1e-5);
 
         result.n = triange._plane.n;
     }
