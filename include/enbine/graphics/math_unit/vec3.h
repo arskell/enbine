@@ -4,6 +4,8 @@
 #include "component.h"
 #include "../angle/simple_angle.h"
 
+#include <ostream>
+
 struct Vec3
 {
     ComponentT x1;
@@ -11,6 +13,8 @@ struct Vec3
     ComponentT x3;
 };
 
+
+std::ostream& operator<<(std::ostream&s, const Vec3& v);
 
 Vec3 operator*(const Vec3& v, const ComponentT& a);
 Vec3 operator/(const Vec3& v, const ComponentT& a);

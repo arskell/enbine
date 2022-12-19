@@ -2,6 +2,12 @@
 #include "math.h"
 
 
+
+std::ostream& operator<<(std::ostream&s, const Vec3& v){
+    s << "x1: "<<v.x1 <<" | x2: "<<v.x2<<" | x3: "<<v.x3;
+    return s;
+}
+
 Vec3 operator*(const Vec3& v, const ComponentT& a){
     Vec3 ret;
     ret.x1 = v.x1 * a;
