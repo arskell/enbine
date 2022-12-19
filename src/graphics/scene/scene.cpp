@@ -21,11 +21,19 @@ LightComponentT Scene::get_light(const Ray& ray){
         return background;
     }
 
-    LightComponentT e{};
+    
+
+    LightComponentT l_global{};
+    auto p = to_vec3(ray, shortest.t);
+    auto material_coeff = shortest.material->get_material_light_coefficients(p, ray.d, {/*todo calculate reflection vector*/});
 
     for(const auto& l: _light){
-        e = e + l.second->get_illumination(shortest.n, to_vec3(ray, shortest.t));
+
+        //todo get shadow here
+        auto curr_illum = l.second->get_illumination(shortest.n, p);
+        auto l_current =  LightComponentT{curr_illum.x1 * material_coeff.x1, curr_illum.x2 * material_coeff.x2, curr_illum.x3 * material_coeff.x3};
+        l_global = l_global + l_current;
     }
 
-    return e;
+    return l_global;
 }
