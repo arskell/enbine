@@ -4,12 +4,13 @@
 
 #include <catch2/catch.hpp>
 #include "enbine/graphics/scene/primitives/triangle.h"
+#include "enbine/graphics/material/metal.h"
 
 TEST_CASE("Triangle", "Triangle"){
     Triangle triangle(
         {10, -10, 0}, 
         {10, 10, 0}, 
-        {10, 10 ,10});
+        {10, 10 ,10}, std::make_shared<MetalMaterial>());
 
     Ray ray;
 
