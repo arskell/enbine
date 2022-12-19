@@ -15,8 +15,10 @@ class PointLight: public Light{
         auto intensity = get_flux()/(M_PI * 4);
 
         auto r2 = distance2(p, this->get_position());
+        
+        auto illumination = (intensity * cos_alpha) / r2;
 
-        return (intensity * cos_alpha) / r2;
+        return illumination;
     }
 };
 
