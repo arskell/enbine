@@ -1,12 +1,14 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
+#include "memory"
+
 #include "../../math_unit/plane.h"
 #include "../../math_unit/vec3.h"
 #include "../../ray/ray.h"
 #include "../../ray/intersection_info.h"
 #include "intersectable_object.h"
-
+#include "../../material/material.h"
 
 class Triangle: public IntersectableObject{
 private:
@@ -14,13 +16,16 @@ private:
     Vec3 _b;
     Plane _plane;
     ComponentT _area;
+    std::shared_ptr<Material> _material;
 
 public:
-    Triangle(){
+    Triangle(std::shared_ptr<Material> material){
+        _material = material;
         set({}, {}, {});
     }
 
-    Triangle(const Vec3& a, const Vec3& b, const Vec3& c){
+    Triangle(const Vec3& a, const Vec3& b, const Vec3& c, std::shared_ptr<Material> material){
+        _material = material;
         set(a, b, c);
     }
 
