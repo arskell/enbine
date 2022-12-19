@@ -20,7 +20,7 @@ IntersectionInfo calc_intersection(const Triangle& triange, const Ray& ray){
         auto ratio = sum_area / triange._area;
 
         result.is_intersected = equal(ratio, 1, 1e-5);
-
+        result.material = triange._material;
         result.n = triange._plane.n;
     }
     return result;
