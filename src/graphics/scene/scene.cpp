@@ -42,21 +42,21 @@ LightComponentT Scene::get_light(const Ray& ray){
         //contruct ray 
         Ray ray_to_light;
         ray_to_light.d = normalize(l.second->get_position() - p);
-        ray_to_light.p = p + ray_to_light.d * 10; /*< some step out (to avoid false positive intersecting with itself object)*/
+        ray_to_light.p = p + ray_to_light.d; /*< some step out (to avoid false positive intersecting with itself object)*/
         
         //test side
         auto to_viewer = ray.d * -1;
         auto to_light = ray_to_light.d;    
         if(std::signbit(shortest.n * to_viewer) != std::signbit(shortest.n * to_light)){
             //we failed
-            break;
+            continue;
         }
 
         auto ray_to_light_intersection = _get_shortest_intersection(ray_to_light);
         //test
         if(ray_to_light_intersection.is_intersected && ray_to_light_intersection.t < min_dist){
             //failed
-            break;
+            continue;
         }
         auto curr_illum = l.second->get_illumination(shortest.n, p);
         auto l_current =  LightComponentT{curr_illum.x1 * material_coeff.x1, curr_illum.x2 * material_coeff.x2, curr_illum.x3 * material_coeff.x3};
