@@ -1,7 +1,7 @@
 #include "enbine/graphics/scene/scene.h"
 #include <vector>
 #include <iostream>
-
+#include <cmath>
 
  IntersectionInfo Scene::_get_shortest_intersection(const Ray& ray) const{
     if(_objects.empty()){return {};}
@@ -30,9 +30,12 @@ LightComponentT Scene::get_light(const Ray& ray){
 
     LightComponentT l_global{};
     auto p = to_vec3(ray, shortest.t);
-    auto material_coeff = shortest.material->get_material_light_coefficients(p, ray.d, {/*todo calculate reflection vector*/});
+
+    auto reflect = ray.d -  shortest.n * (2 * (ray.d * shortest.n));
+    auto material_coeff = shortest.material->get_material_light_coefficients(p, ray.d, reflect);
 
     for(const auto& l: _light){
+
         //test shadow here
         //calulate distance to light
         auto min_dist = distance(l.second->get_position(), p);
@@ -40,6 +43,15 @@ LightComponentT Scene::get_light(const Ray& ray){
         Ray ray_to_light;
         ray_to_light.d = normalize(l.second->get_position() - p);
         ray_to_light.p = p + ray_to_light.d * 10; /*< some step out (to avoid false positive intersecting with itself object)*/
+        
+        //test side
+        auto to_viewer = ray.d * -1;
+        auto to_light = ray_to_light.d;    
+        if(std::signbit(shortest.n * to_viewer) != std::signbit(shortest.n * to_light)){
+            //we failed
+            break;
+        }
+
         auto ray_to_light_intersection = _get_shortest_intersection(ray_to_light);
         //test
         if(ray_to_light_intersection.is_intersected && ray_to_light_intersection.t < min_dist){
